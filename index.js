@@ -30,9 +30,9 @@ const templateFill = (conversionNumber = 0, title, units, rate) => {
   const template = `<div class="item">
   <h4 class="item__title">${title}</h4>
   <p class="item__info">${conversionNumber} ${first} = ${(
-    +conversionNumber * rate
+    conversionNumber * rate
   ).toFixed(3)} ${second} | 
-  ${conversionNumber} ${second} = ${(+conversionNumber / rate).toFixed(
+  ${conversionNumber} ${second} = ${(conversionNumber / rate).toFixed(
     3,
   )} ${first}</p>
   </div>`;
@@ -42,7 +42,7 @@ const templateFill = (conversionNumber = 0, title, units, rate) => {
 
 const submitHandler = e => {
   e.preventDefault();
-  const conversionNumber = numberInputEl.value;
+  const conversionNumber = numberInputEl.valueAsNumber;
   let res = '';
 
   data.map(item => {
